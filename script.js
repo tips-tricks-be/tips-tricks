@@ -6,38 +6,82 @@ const AIButton = document.getElementById('AIButton');
 const windowsButton = document.getElementById('windowsButton');
 let firstPlaybackFinished = false;
 
-const playWithSound = async () => {
-    if (!video) return;
-    video.muted = false;
+const restoreIndexState = () => {
+    const storedState = sessionStorage.getItem('tipsTricksIndexState');
+    if (!storedState) return;
     try {
-        await video.play();
-        if (startButton) {
-            startButton.classList.add('hidden');
+        const state = JSON.parse(storedState);
+        if (video && typeof state.currentTime === 'number') {
+            video.currentTime = state.currentTime;
         }
-    } catch (err) {
-        console.warn('Autoplay blocked; showing start button.', err);
-        video.muted = true;
-        if (startButton) {
-            startButton.classList.remove('hidden');
+        if (video && typeof state.muted === 'boolean') {
+            video.muted = state.muted;
         }
+        if (startButton) {
+            if (state.started) {
+                startButton.classList.add('hidden');
+            } else {
+                startButton.classList.remove('hidden');
+            }
+        }
+        if (state.visibleButtons) {
+            if (photoshopButton) {
+                state.visibleButtons.photoshop ? photoshopButton.classList.remove('hidden') : photoshopButton.classList.add('hidden');
+            }
+            if (_3dsmaxButton) {
+                state.visibleButtons.dsmax ? _3dsmaxButton.classList.remove('hidden') : _3dsmaxButton.classList.add('hidden');
+            }
+            if (AIButton) {
+                state.visibleButtons.AI ? AIButton.classList.remove('hidden') : AIButton.classList.add('hidden');
+            }
+            if (windowsButton) {
+                state.visibleButtons.windows ? windowsButton.classList.remove('hidden') : windowsButton.classList.add('hidden');
+            }
+        }
+        if (typeof state.scrollY === 'number') {
+            window.scrollTo(0, state.scrollY);
+        }
+        if (state.isPlaying) {
+            video.play().catch(() => {});
+        }
+    } catch (error) {
+        console.warn('Failed to restore index state:', error);
     }
+};
+
+const saveIndexState = () => {
+    const state = {
+        currentTime: video?.currentTime || 0,
+        muted: video?.muted ?? true,
+        started: startButton ? !startButton.classList.contains('hidden') : false,
+        isPlaying: video ? !video.paused : false,
+        scrollY: window.scrollY,
+        visibleButtons: {
+            photoshop: photoshopButton ? !photoshopButton.classList.contains('hidden') : false,
+            dsmax: _3dsmaxButton ? !_3dsmaxButton.classList.contains('hidden') : false,
+            AI: AIButton ? !AIButton.classList.contains('hidden') : false,
+            windows: windowsButton ? !windowsButton.classList.contains('hidden') : false,
+        },
+    };
+    sessionStorage.setItem('tipsTricksIndexState', JSON.stringify(state));
 };
 
 if (startButton) {
     startButton.addEventListener('click', async () => {
-        startButton.classList.add('hidden');
-        video.muted = false;
         try {
+            video.muted = false;
             await video.play();
+            startButton.classList.add('hidden');
+            saveIndexState();
         } catch (err) {
             console.warn('Play with sound failed:', err);
+            video.muted = true;
         }
     });
 }
 
-video.addEventListener('loadedmetadata', () => {
-    playWithSound();
-});
+window.addEventListener('pageshow', restoreIndexState);
+window.addEventListener('beforeunload', saveIndexState);
 
 video.addEventListener('ended', () => {
     if (!firstPlaybackFinished) {
@@ -77,31 +121,27 @@ setTimeout(() => {
 // Optional: handle click on the photoshop button
 if (photoshopButton) {
     photoshopButton.addEventListener('click', () => {
-        // placeholder action — customize as needed
-        window.alert('Photoshop button clicked');
+        window.location.href = 'photoshop.html';
     });
 }
 
 // Optional: handle click on the 3ds Max button
 if (_3dsmaxButton) {
     _3dsmaxButton.addEventListener('click', () => {
-        // placeholder action — customize as needed
-        window.alert('3ds Max button clicked');
+        window.location.href = '3dsmax.html';
     });
 }
 
 // Optional: handle click on the AI button
 if (AIButton) {
     AIButton.addEventListener('click', () => {
-        // placeholder action — customize as needed
-        window.alert('AI button clicked');
+        window.location.href = 'AI.html';
     });
 }
 
 // Optional: handle click on the Windows 11 button
 if (windowsButton) {
     windowsButton.addEventListener('click', () => {
-        // placeholder action — customize as needed
-        window.alert('Windows 11 button clicked');
+        window.location.href = 'windows.html';
     });
 }

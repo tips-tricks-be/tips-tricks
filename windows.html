@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11</title>
+    <link rel="stylesheet" href="windows.css">
+    <link rel="icon" type="image/png" href="logo-uitgesneden.png">
+</head>
+<body>
+     <section>
+        <a href="index.html" class="back-button" id="backButton">← Back to Home</a>
+        <h1>Windows 11 tips en tricks</h1>
+        <p>Welkom bij de Windows 11 tips en tricks page</p>
+        <p>Bekijk de video lessen hieronder om te beginnen met het leren van windows in het Nederlands!</p>
+        <p>ER KOMEN WEEKELIJKS NIEUWE VIDEO'S BIJ</p>
+        <div class="video" id="video">
+            <div class="video1">
+       <iframe class="lessen" width="500" height="350" src="https://www.youtube.com/embed/-guvBvftLTI" title="windows tips en tricks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+       
+    
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="bausmans" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        </div>
+           <div class="video2">
+        <iframe class="lessen" width="500" height="350" src="https://www.youtube.com/embed/UXBn80IEvpw" title="windows tips en tricks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      
+       <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="bausmans" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        </div>
+        <div class="video3">
+            <iframe class="lessen" width="500" height="350" src="https://www.youtube.com/embed/nAocGtFA6cs" title="tips en tricks voor windows 11" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              
+               <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="bausmans" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        </div>
+      
+        </div>
+            
+    </section>
+    
+    <script>
+        const backButton = document.getElementById('backButton');
+        if (backButton) {
+            backButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = 'index.html';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

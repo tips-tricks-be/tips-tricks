@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html{
+    font-family: "Reem Kufi", sans-serif;
+}
+.bg{
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+.header {
+  color: 000;
+  position: absolute;
+padding-top: 5px;
+  top: 2%;
+  right: 1%;
+}
+.navbar a {
+    border-radius: 15%;
+    border: rgb(255, 255, 255) solid 5px;
+   background-color: #6CBAFC;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  padding: 0px 16px;
+  font-weight: 600;
+}
+.navbar a:hover,
+.navbar a.active {
+  color: #f8de6e;
+}
+
+.back-button {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-block;
+    color: #fff;
+    background: rgba(255, 107, 107, 0.95);
+    border: 2px solid #ff5252;
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.back-button:hover {
+    background: rgba(255, 82, 82, 0.95);
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   color: #fff;
+    background-color:#2F3252 ;
+}
+h1 p{
+    width: 50%;
+}
+.lessen{
+    padding: 45px;
+    display: flex;
+    margin: 50 auto;
+}
+.video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+button{
+    background-color: #322F52;
+    width: 180px;
+    height: 60px;
+    font-size: 20px;
+    color: red;
+    border: #fff solid 2px;
+    border-radius: 20%;
+    cursor: pointer;
+}
+button:hover{
+    background-color: red;
+    color: #fff;
+    
+}
+section{
+    height: 800%;
+}
+@media (max-width: 500px) {
+   section{
+    height: 500%;
+   }
+   #bg{
+    display: none;
+   }
+    }
+    @media (max-width: 1000px) {
+   section{
+    height: 500%;
+   }
+    }
+        @media (max-width: 1500px) {
+   section{
+    height: 800%;
+   }
+    }
+video{
+object-fit: cover;
+object-position: center;
+    width: 100%;
+    height: 100vh;
+}
