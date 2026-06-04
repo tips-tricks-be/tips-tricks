@@ -100,7 +100,10 @@ section{
    #bg{
     display: none;
    }
+   .navbar a.back-button {
+    right: 50%;
     }
+}
     @media (max-width: 1000px) {
    section{
     height: 500%;
