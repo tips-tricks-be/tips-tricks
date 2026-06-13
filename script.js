@@ -4,6 +4,7 @@ const photoshopButton = document.getElementById('photoshopButton');
 const _3dsmaxButton = document.getElementById('3dsmaxButton');
 const AIButton = document.getElementById('AIButton');
 const windowsButton = document.getElementById('windowsButton');
+const lessenButton = document.getElementById('lessenButton');
 let firstPlaybackFinished = false;
 
 const restoreIndexState = () => {
@@ -38,6 +39,9 @@ const restoreIndexState = () => {
                 state.visibleButtons.windows ? windowsButton.classList.remove('hidden') : windowsButton.classList.add('hidden');
             }
         }
+        if (lessenButton) {
+            lessenButton.classList.remove('hidden');
+        }
         if (typeof state.scrollY === 'number') {
             window.scrollTo(0, state.scrollY);
         }
@@ -61,6 +65,7 @@ const saveIndexState = () => {
             dsmax: _3dsmaxButton ? !_3dsmaxButton.classList.contains('hidden') : false,
             AI: AIButton ? !AIButton.classList.contains('hidden') : false,
             windows: windowsButton ? !windowsButton.classList.contains('hidden') : false,
+            lessen: true,
         },
     };
     sessionStorage.setItem('tipsTricksIndexState', JSON.stringify(state));
@@ -143,5 +148,12 @@ if (AIButton) {
 if (windowsButton) {
     windowsButton.addEventListener('click', () => {
         window.location.href = 'windows.html';
+    });
+}
+
+// Optional: handle click on the Lessen button
+if (lessenButton) {
+    lessenButton.addEventListener('click', () => {
+        window.location.href = '../../stemmen/index.html';
     });
 }
