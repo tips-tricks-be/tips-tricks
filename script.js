@@ -5,7 +5,17 @@ const _3dsmaxButton = document.getElementById('3dsmaxButton');
 const AIButton = document.getElementById('AIButton');
 const windowsButton = document.getElementById('windowsButton');
 const lessenButton = document.getElementById('lessenButton');
+const timerContainer = document.getElementById('timerContainer');
+const timerLabel = document.getElementById('timerLabel');
 let firstPlaybackFinished = false;
+let countdownInterval = null;
+
+if (timerContainer) {
+    timerContainer.classList.add('hidden');
+}
+if (timerLabel) {
+    timerLabel.textContent = '25';
+}
 
 const restoreIndexState = () => {
     const storedState = sessionStorage.getItem('tipsTricksIndexState');
@@ -24,6 +34,9 @@ const restoreIndexState = () => {
             } else {
                 startButton.classList.remove('hidden');
             }
+        }
+        if (timerContainer && typeof state.timerVisible === 'boolean') {
+            state.timerVisible ? timerContainer.classList.remove('hidden') : timerContainer.classList.add('hidden');
         }
         if (state.visibleButtons) {
             if (photoshopButton) {
@@ -60,6 +73,7 @@ const saveIndexState = () => {
         started: startButton ? !startButton.classList.contains('hidden') : false,
         isPlaying: video ? !video.paused : false,
         scrollY: window.scrollY,
+        timerVisible: timerContainer ? !timerContainer.classList.contains('hidden') : false,
         visibleButtons: {
             photoshop: photoshopButton ? !photoshopButton.classList.contains('hidden') : false,
             dsmax: _3dsmaxButton ? !_3dsmaxButton.classList.contains('hidden') : false,
@@ -83,6 +97,32 @@ if (startButton) {
             video.muted = true;
         }
     });
+}
+
+window.addEventListener('load', () => {
+    startCountdown(25);
+});
+
+function startCountdown(seconds) {
+    if (!timerContainer || !timerLabel) return;
+    if (countdownInterval) {
+        clearInterval(countdownInterval);
+    }
+    let remaining = seconds;
+    timerLabel.textContent = `${remaining}`;
+    timerContainer.classList.remove('hidden');
+    countdownInterval = window.setInterval(() => {
+        remaining -= 1;
+        if (remaining <= 0) {
+            timerLabel.textContent = '0';
+            clearInterval(countdownInterval);
+            if (timerContainer) {
+                timerContainer.classList.add('hidden');
+            }
+            return;
+        }
+        timerLabel.textContent = `${remaining}`;
+    }, 1000);
 }
 
 window.addEventListener('pageshow', restoreIndexState);
