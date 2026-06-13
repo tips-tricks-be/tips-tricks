@@ -38,9 +38,9 @@ const restoreIndexState = () => {
             if (windowsButton) {
                 state.visibleButtons.windows ? windowsButton.classList.remove('hidden') : windowsButton.classList.add('hidden');
             }
-        }
-        if (lessenButton) {
-            lessenButton.classList.remove('hidden');
+            if (lessenButton) {
+                state.visibleButtons.lessen ? lessenButton.classList.remove('hidden') : lessenButton.classList.add('hidden');
+            }
         }
         if (typeof state.scrollY === 'number') {
             window.scrollTo(0, state.scrollY);
@@ -122,6 +122,12 @@ setTimeout(() => {
         windowsButton.classList.remove('hidden');
     }
 }, 25000);
+// Show the Lessen button after 25 seconds
+setTimeout(() => {
+    if (lessenButton) {
+        lessenButton.classList.remove('hidden');
+    }
+}, 25000);
 
 // Optional: handle click on the photoshop button
 if (photoshopButton) {
@@ -154,6 +160,6 @@ if (windowsButton) {
 // Optional: handle click on the Lessen button
 if (lessenButton) {
     lessenButton.addEventListener('click', () => {
-        window.location.href = '../../stemmen/index.html';
+        window.location.href = '../stemmen/index.html';
     });
 }

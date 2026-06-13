@@ -163,7 +163,8 @@ button {
     .photoshop-button,
     .dsmax-button,
     .AI-button,
-    .windows-button {
+    .windows-button,
+    .lessen-button {
         position: absolute;
         right: 12px;
         padding: 8px 14px;
@@ -202,7 +203,8 @@ button {
     .photoshop-button,
     .dsmax-button,
     .AI-button,
-    .windows-button {
+    .windows-button,
+    .lessen-button {
         right: 8px;
         padding: 6px 12px;
         font-size: 11px;
@@ -222,5 +224,8 @@ button {
 
     .windows-button {
         top: 110px;
+    }
+    .lessen-button {
+        top: 140px;
     }
 }
