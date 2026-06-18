@@ -175,7 +175,9 @@ button {
         height: auto;
         min-height: 100vh;
     }
-
+    p{
+        opacity: 0;
+    }
 
     .photoshop-button,
     .dsmax-button,
@@ -232,11 +234,16 @@ button {
         height: auto;
         min-height: 100vh;
     }
+       p{
+        opacity: 0;
+    }
+   
    .photoshop-button,
     .dsmax-button,
     .AI-button,
     .windows-button,
-    .lessen-button {
+    .lessen-button,
+     {
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
@@ -266,6 +273,9 @@ button {
     .lessen-button {
         top: calc(50% + 100px);
     }
+    p{
+        hidden: true;
+    }
 
     .timer-container {
         position: fixed;
@@ -281,4 +291,26 @@ button {
         border-radius: 10px;
         box-shadow: 0 6px 20px rgba(220,20,60,0.18);
     }
+}
+h1{
+position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    z-index: 10;
+}
+p{
+position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    z-index: 10;
 }
