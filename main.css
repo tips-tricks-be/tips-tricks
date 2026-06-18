@@ -194,17 +194,7 @@ button {
     .AI-button,
     .windows-button,
     .lessen-button,
-     {
-        position: fixed;
-        left: 50%;
-        transform: translateX(-50%);
-        width: calc(100% - 24px);
-        max-width: 360px;
-        padding: 12px 16px;
-        font-size: 15px;
-        border-radius: 10px;
-        text-align: center;
-    }
+
 
     .photoshop-button {
         top: calc(50% - 100px);
@@ -242,7 +232,7 @@ button {
 }
 h1{
 position: absolute;
-    top: 5px;
+    top: 15px;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: Roboto, sans-serif;
@@ -252,7 +242,7 @@ position: absolute;
 }
 p{
 position: absolute;
-    top: 30px;
+    top: 45px;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: Roboto, sans-serif;
