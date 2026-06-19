@@ -33,7 +33,7 @@ body {
 
 
 button {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 
@@ -120,7 +120,7 @@ button {
 
 /* Mobile responsive styles */
 /* Mobile responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     #introVideo {
         width: 100%;
         height: auto;
@@ -128,6 +128,12 @@ button {
     }
     p{
         opacity: 0;
+    }
+     h1{
+       position: fixed;
+        left: 10px;
+        transform: translateX(-50%);
+        width: 80%;
     }
 
     .photoshop-button,
@@ -187,6 +193,12 @@ button {
     }
        p{
         opacity: 0;
+    }
+    h1{
+       position: fixed;
+        left: 10px;
+        transform: translateX(-50%);
+        width: 90%;
     }
    
    .photoshop-button,
