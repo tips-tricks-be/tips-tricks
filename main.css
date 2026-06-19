@@ -120,7 +120,7 @@ button {
 
 /* Mobile responsive styles */
 /* Mobile responsive styles */
-@media (max-width: 968px) {
+@media (max-width: 1280px) {
     #introVideo {
         width: 100%;
         height: auto;
